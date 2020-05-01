@@ -17,7 +17,7 @@ int main() {
     const int MONTHS = 3, DAYS = 30;
     char type[MONTHS][DAYS];
     string monthNames[MONTHS] = { "June", "July", "August" };
-    int count=0,highest, totalS[MONTHS], totalC[MONTHS], totalR[MONTHS];
+    int count=0,highest, totalS[MONTHS], totalC[MONTHS], totalR[MONTHS],totalOfR=0, totalOfS=0, totalOfC=0;
     ifstream inputFile;
 
     inputFile.open("../RainOrShine.txt"); // Open file
@@ -68,25 +68,33 @@ int main() {
                 totalS[i]++;
         }
     }
+    for (int i = 0; i < MONTHS; i++) {
+        totalOfR += totalR[i];
+        totalOfS += totalS[i];
+        totalOfC += totalC[i];
+    }
     // Disply Rainy, Cloudy and Sunny
     for (int i = 0; i < MONTHS; i++)
     {
         cout << monthNames[i] << " " << "Rainy:" << totalR[i] << endl;
     }
-
+    cout << "Total number of rainy days: " << totalOfR << endl;
     cout << endl;
 
     for (int i = 0; i < MONTHS; i++)
     {
         cout << monthNames[i] << " " << "Cloudy:" << totalC[i] << endl;
     }
-    
+    cout << "Total number of cloudy days: " << totalOfC << endl;
     cout << endl;
 
     for (int i = 0; i < MONTHS; i++)
     {
         cout << monthNames[i] << " " << "Sunny:" << totalS[i] << endl;
    }
+    
+    cout << "Total number of sunny days: " << totalOfS << endl;
+    
 
     // Get month with most rainy days
     int biggestMonth = 0;
