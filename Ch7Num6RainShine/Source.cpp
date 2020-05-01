@@ -20,7 +20,7 @@ int main() {
     int count=0,highest, totalS[MONTHS], totalC[MONTHS], totalR[MONTHS];
     ifstream inputFile;
 
-    inputFile.open("C:/Users/Andrea Hayes/source/repos/Ch7Num6RainShine/RainOrShine.txt"); // Open file
+    inputFile.open("../RainOrShine.txt"); // Open file
 
     if (!inputFile) // If file does not open
     {
